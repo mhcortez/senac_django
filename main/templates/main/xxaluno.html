@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="container" class="table-responsive">
+    <h1>Lista de Alunos Ativos</h1>
+    
+    <a href="{% url 'Alunos' %}" class="btn btn-primary mb-3">Adicionar Alunos</a> <!-- Botão para adicionar novo Autor -->
+
+    <table class="table table-bordered table-hover table-sm">
+      <caption>Lista de Alunos</caption>
+      <thead>
+        <tr class="table-primary">
+          <th scope="col">Aluno</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for aluno in Alunos %}      
+          <tr>
+              <td>{{ aluno.nome }}</td>
+          </tr>
+        {% empty %}
+          <tr>
+             <td colspan="4">Nenhum Aluno encontrado.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    
+  </div>
+
+{% endblock %}
